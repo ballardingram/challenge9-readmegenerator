@@ -43,7 +43,7 @@ const readmequestions = [
         choices: true,
     },
     {
-        type:"choice",
+        type:"checkbox",
         name: "license type",
         message: "What type of license?",
         choices: ['Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause SIMPLIFIED License', 'BSD 3-Clause NEW or REVISED License', 'Boost Software License 1.0', 'Creative Commons Zero v1.0 Universal', 'Eclipse Public License 2.0', 'GNU Affero General Public License v3.0','GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense'],
