@@ -4,12 +4,13 @@
 // DOCUMENTATION > FS (https://nodejs.dev/learn/the-nodejs-fs-module)
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+const generateMarkdown = require('/util/generateMarkdown');
 
 // CONST > QUESTIONS FOR README - This was pulled from the module example. I used inquirer documentation (https://www.npmjs.com/package/inquirer) to test 'types' for the questions so they were not all just text inputs.
 // DOCUMENTATION > PROFESSIONAL README GUIDE (https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
 // NOTE: I read over the documentation for the Professional ReadMe Guide and some of the questions I changed based on my experience reading other readmes and what I think would be helpful to see in a README. I want to work on adding MEDIA QUESTIONS to the readme, but I am not there yet.
-const readmequestions = [
+inquirer 
+    .prompt = ([
     {
         type: "input",
         name: "title",
@@ -106,20 +107,21 @@ const readmequestions = [
             }
         }
     },
-];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
+// TODO STATUS > COMPLETED - MIGRATED IT FROM ITS OWN SECTION TO THE PROMPTS SECTION    
+]).then((data) => {
+    console.log(data);
+    fs.writeFile(NEW_README.md, generateMarkdown(data), err => {
         if (err) {
             return console.log(err);
         }
-        console.log("COMPLETE! Read Me has been generated.")
-    });
-}
+        console.log("COMPLETE! Read Me has been generated. View the FILE EXPLORER to find your file with the name of your PROJECT!")
+    }
+)})
 
 // TODO: Create a function to initialize app
-// TODO > STATUS COMPLETED
+// TODO STATUS > COMPLETED
 function init() {
     inquirer
     .prompt(readmequestions)
