@@ -1,7 +1,9 @@
-// TODO: Include packages needed for this application
+// These are the external packages needed.
 const inquirer = require('inquirer');
+const fs = require('fs');
+const util = require('util');
 
-// TODO: Create an array of questions for user input
+// List of prompts for the read me generator.
 const readmequestions = [
     {
         type: "input",
@@ -51,10 +53,17 @@ const readmequestions = [
         name: "github username",
         message: "What is your GitHub username?",
     },
-],
+];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("COMPLETE! Read Me has been generated.")
+    });
+}
 
 // TODO: Create a function to initialize app
 function init() {
