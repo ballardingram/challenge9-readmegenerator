@@ -19,4 +19,6 @@ The licenses and references present an opportunity for me. There is probably som
 ## Project Media
 
 ### Video of Site Functionality
-![Demo](https://drive.google.com/file/d/1R8vDvQ7iWaYrKbmOHj3QrVWYYMAJEW5c/view)
+
+Click on the link below to access a VIDEO DEMO of the application.
+https://drive.google.com/file/d/1R8vDvQ7iWaYrKbmOHj3QrVWYYMAJEW5c/view
