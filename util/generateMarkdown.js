@@ -94,6 +94,7 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+// TODO STATUS > COMPLETE
 function renderLicenseSection(license) {
   let licenseSection = ''
   if(license === 'None') {
@@ -137,12 +138,12 @@ To ensure the project and application runs properly users will need to complete 
 - ${data.challenges}
 
 ## Future Dev
-- ${data.future_dev}
+${data.future_dev} - This will indicate if there will be any future development.
 
 ## License Type
 ${renderLicenseSection(data.license)}
 ${renderLicenseBadge(data.license)}
-${renderLienceseLink(data.license)}
+${renderLicenseLink(data.license)}
 
 ## GitHUb User Name
 - ${data.github_username}
