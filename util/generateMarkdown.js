@@ -94,17 +94,25 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  let licenseSection = ''
+  if(license === 'None') {
+    licenseSection = ''
+  } else {
+    licenseSection = `License: ${license}`
+  }
+  return licenseSection;
+}
 
 // TODO: Create a function to generate markdown for README
-// TODO STATUS > PENDING
+// TODO STATUS > COMPLETE
 // DOCUMENTATION > BASIC WRITING AND FORMATTING SYNTAX (https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 function generateMarkdown(data) {
   return `
   # ${data.title}
   
 ## Description
-- ${data.description}
+${data.description}
 
   ## Table of Contents
    - [BuiltWith](#)
@@ -116,9 +124,10 @@ function generateMarkdown(data) {
    - [GitHub User Name](#github_username)
 
  ## Built With
-- ${data.builtwith}
+ This project was built with the following software: ${data.builtwith}!
 
 ## Installation
+To ensure the project and application runs properly users will need to complete the following installation instructions:
 - ${data.installation}
 
 ## Collaboration
@@ -131,12 +140,14 @@ function generateMarkdown(data) {
 - ${data.future_dev}
 
 ## License Type
-- ${renderLicense(data.license)}
+${renderLicenseSection(data.license)}
+${renderLicenseBadge(data.license)}
+${renderLienceseLink(data.license)}
 
 ## GitHUb User Name
 - ${data.github_username}
 
-If you have any questions please contact me at ${data.email} and I would be happy to help!
+If you have any questions please contact ${data.github_username} at ${data.email}!
 `;
 }
 
