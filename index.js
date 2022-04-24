@@ -4,14 +4,14 @@
 // DOCUMENTATION > FS (https://nodejs.dev/learn/the-nodejs-fs-module)
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('/util/generateMarkdown');
+const util = require("util");
+const generateMarkdown = require('./util/generateMarkdown');
 
 // CONST > QUESTIONS FOR README - This was pulled from the module example. I used inquirer documentation (https://www.npmjs.com/package/inquirer) to test 'types' for the questions so they were not all just text inputs.
 // DOCUMENTATION > PROFESSIONAL README GUIDE (https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
 // NOTE: I read over the documentation for the Professional ReadMe Guide and some of the questions I changed based on my experience reading other readmes and what I think would be helpful to see in a README. I want to work on adding MEDIA QUESTIONS to the readme, but I am not there yet.
-inquirer 
-    .prompt = ([
-    {
+const readmeQuestions = [{
+        
         type: "input",
         name: "title",
         message: "What is the project title?",
@@ -46,12 +46,12 @@ inquirer
     {
         type: "input",
         name:"installation",
-        message: "How should users install your code?",
+        message: "How should users install and test your code?",
         validate: installationInput => {
             if (installationInput) {
                 return true;
             } else {
-                console.log('This helps everyone build a Professional ReadMe, tell us how you did it.')
+                console.log('This helps everyone build a Professional ReadMe, tell us how you did it and how to test the code.')
                 return false;
             }
         }
@@ -107,26 +107,35 @@ inquirer
             }
         }
     },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+    }
+];
 
 // TODO: Create a function to write README file
 // TODO STATUS > COMPLETED - MIGRATED IT FROM ITS OWN SECTION TO THE PROMPTS SECTION    
-]).then((data) => {
-    console.log(data);
-    fs.writeFile(NEW_README.md, generateMarkdown(data), err => {
+function writeFile(fileName,data) {
+fs.writeFile(fileName, data, function(err) {
+        console.log(fileName)
+        console.log(data)
         if (err) {
-            return console.log(err);
+            return console.log(err)
+        } else {
+            console.log("COMPLETE! Read Me has been generated. View the FILE EXPLORER to find your file with the name of your PROJECT!")
         }
-        console.log("COMPLETE! Read Me has been generated. View the FILE EXPLORER to find your file with the name of your PROJECT!")
-    }
-)})
-
-// TODO: Create a function to initialize app
-// TODO STATUS > COMPLETED
-function init() {
-    inquirer
-    .prompt(readmequestions)
-    .then(response => {console.log(response)})
+    })
 }
 
-// Function call to initialize app
+// FUNCTION > INITIALIZE PROGRAM
+function init() {
+    inquirer.prompt(readmeQuestions)
+    .then(function(data) {
+        writeFile("NEW-PROFESSIONAL-README.md", generateMarkdown(data));
+        console.log(data)
+    })
+}
+
+// function call to initialize program
 init();
