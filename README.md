@@ -1,5 +1,5 @@
 # Professional README Generator
-This code is developed using starter code from https://github.com/coding-boot-camp/potential-enigma.git through my UT Bootcamp Full Stack program.
+This is part of Challenge 9 - PROFESSIONAL README GENERATOR for my UT Bootcamp Full Stack program.
 
 ## Built With
 This application was built with starter code from https://github.com/coding-boot-camp/potential-enigma.git through my UT Bootcamp Full Stack program. The code was then updated with NODE, Inquirer, FS, and UTIL for functionality.
