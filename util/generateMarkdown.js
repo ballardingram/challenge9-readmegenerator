@@ -2,8 +2,8 @@
 // If there is no license, return an empty string
 // TODO STATUS > COMPLETED
 function renderLicenseBadge(license) {
-  if (license === 'Apache') {
-    return '![License: Apache](https://www.apache.org/foundation/press/kit/feather.png)'
+  if (license === 'Apache License 2.0') {
+    return '![License: Apache License 2.0](https://www.apache.org/foundation/press/kit/feather.png)'
   }
   if (license === 'GNU General Public License v3.0') {
     return '![License: GNU General Public License v3.0](https://ipmetrix.files.wordpress.com/2014/06/gpl.png)'
@@ -50,8 +50,8 @@ function renderLicenseBadge(license) {
 // DOCUMENTATION NOTE > (https://opensource.org/licenses) DID NOT HAVE ALL LICENSES SO OTHERS CAME FROM THEIR OWN HOSTED SITES
 
 function renderLicenseLink(license) {
-  if (license === 'Apache') {
-    return '![License: Apache](https://opensource.org/licenses/Apache-2.0)'
+  if (license === 'Apache License 2.0') {
+    return '![License: Apache License 2.0](https://opensource.org/licenses/Apache-2.0)'
   }
   if (license === 'GNU General Public License v3.0') {
     return '![License: GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)'
@@ -141,9 +141,9 @@ To ensure the project and application runs properly users will need to complete 
 ${data.future_dev} - This will indicate if there will be any future development.
 
 ## License Type
-${renderLicenseSection(data.license)}
-${renderLicenseBadge(data.license)}
-${renderLicenseLink(data.license)}
+${renderLicenseSection(data.license_type)}
+${renderLicenseBadge(data.license_type[0])}
+${renderLicenseLink(data.license_type[0])}
 
 ## GitHUb User Name
 - ${data.github_username}
